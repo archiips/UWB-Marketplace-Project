@@ -1,3 +1,5 @@
+// SKELETON OF CLASS -- NON FUNCTIONAL
+
 import java.util.Date;
 
 public class Listing {
