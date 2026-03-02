@@ -12,7 +12,7 @@ This project is a marketplace website created specifically for UW students. It p
 ## Technologies Used
 This project is built using a modern full-stack architecture:
 * **Frontend:** JavaScript and React (for the user interface)
-* **Backend:** Python and Flask (for the server logic and API)
+* **Backend:** Javak (for the server logic and API)
 * **Database:** PostgreSQL hosted on Supabase (for data storage)
 * **Image Storage:** Cloudinary (for listing photos)
 

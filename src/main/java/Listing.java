@@ -6,19 +6,33 @@ public class Listing {
     private String name;
     private String description;
     private boolean sold;
-    private String dateAdded;
+    private Date dateAdded;
+
+    public Listing(String name, String description, double price, Date dateAdded, boolean sold) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.dateAdded = dateAdded;
+        this.sold = sold;
+    }
 
     public Listing(double price, String name, String description) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
         this.price = price;
         this.name = name;
         this.description = description;
         this.sold = false;
-        this.dateAdded = new Date().toString();
+        this.dateAdded = new Date();
     }
 
     public Listing() {
         this.sold = false;
-        this.dateAdded = new Date().toString();
+        this.dateAdded = new Date();
     }
 
     @Override
@@ -72,7 +86,7 @@ public class Listing {
         return description;
     }
 
-    public String getDateAdded() {
+    public Date getDateAdded() {
         return dateAdded;
     }
 

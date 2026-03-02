@@ -65,6 +65,15 @@ public class Store {
         writer.close();
     }
 
+    public void deleteListing(int index) throws IOException {
+        List<Listing> listings = readAllListings();
+        if (index < 0 || index >= listings.size()) {
+            throw new IndexOutOfBoundsException("Invalid listing index: " + index);
+        }
+        listings.remove(index);
+        writeAllListings(listings);
+    }
+
     public void storeListing(Listing listing) throws IOException {
         if (listing == null) {
             throw new IllegalArgumentException("listing cannot be null");
