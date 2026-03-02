@@ -55,7 +55,7 @@ public class Listing {
         name = null;
         price = 0.0;
         description = null;
-        sold = false;
+        sold = true;
     }
 
     // Getters
