@@ -1,4 +1,3 @@
-import java.util.Date;
 import java.time.LocalDateTime;
 
 public class Listing {
@@ -6,27 +5,27 @@ public class Listing {
     private double price;
     private String name;
     private String description;
-    private boolean inStock;
-    private final LocalDateTime createdAt;
+    private boolean sold;
+    private String dateAdded;
 
     public Listing(double price, String name, String description) {
         this.price = price;
         this.name = name;
         this.description = description;
-        this.inStock = true;
-        this.createdAt = LocalDateTime.now();
+        this.sold = false;
+        this.dateAdded = LocalDateTime.now().toString();
     }
 
     public Listing() {
-        this.inStock = true;
-        this.createdAt = LocalDateTime.now();
+        this.sold = false;
+        this.dateAdded = LocalDateTime.now().toString();
     }
 
     @Override
     public String toString() {
         return "Name: " + name + "\nPrice" + price +
-                "\nDescription: " + description + "\nStock status: " + inStock +
-                "\nDate added: " + createdAt;
+                "\nDescription: " + description + "\nStock status: " + sold +
+                "\nDate added: " + dateAdded;
     }
 
     @Override
@@ -43,7 +42,7 @@ public class Listing {
         if (Double.compare(other.price, price) != 0) {
             return false;
         }
-        if (inStock != other.inStock) {
+        if (sold != other.sold) {
             return false;
         }
         if (name != null ? !name.equals(other.name) : other.name != null) {
@@ -56,7 +55,7 @@ public class Listing {
         name = null;
         price = 0.0;
         description = null;
-        inStock = false;
+        sold = false;
     }
 
     // Getters
@@ -73,12 +72,12 @@ public class Listing {
         return description;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public String getDateAdded() {
+        return dateAdded;
     }
 
-    public boolean isInStock() {
-        return inStock;
+    public boolean isSold() {
+        return sold;
     }
 
     //Setters
@@ -94,8 +93,8 @@ public class Listing {
         this.description = description;
     }
 
-    public void setStock(boolean inStock) {
-        this.inStock = inStock;
+    public void setSold(boolean sold) {
+        this.sold = sold;
     }
 
 }

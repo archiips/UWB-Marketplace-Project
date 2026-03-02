@@ -18,6 +18,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Gson to serialize Listing object to .json -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+
     </dependencies>
 
     <properties>

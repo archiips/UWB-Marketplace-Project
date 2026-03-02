@@ -34,7 +34,7 @@ public class StoreTests {
         Files.writeString(jsonFile.toPath(), json);
 
         //TODO: Will be compilable with creation of Store object
-        Store storage = new Store(jsonFile);
+        Store storage = new Store();
         List<Listing> listings = storage.listStoredListings();
 
         assertNotNull(listings);
