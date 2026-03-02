@@ -1,4 +1,4 @@
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Listing {
 
@@ -13,12 +13,12 @@ public class Listing {
         this.name = name;
         this.description = description;
         this.sold = false;
-        this.dateAdded = LocalDateTime.now().toString();
+        this.dateAdded = new Date().toString();
     }
 
     public Listing() {
         this.sold = false;
-        this.dateAdded = LocalDateTime.now().toString();
+        this.dateAdded = new Date().toString();
     }
 
     @Override
