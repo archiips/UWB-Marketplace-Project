@@ -1,0 +1,30 @@
+[
+  {
+    "price": 15.0,
+    "name": "Desk Lamp",
+    "description": "Works great",
+    "sold": false,
+    "dateAdded": "Feb 28, 2026, 5:00:00 PM"
+  },
+  {
+    "price": 40.0,
+    "name": "Calculus Textbook",
+    "description": "Some highlighting",
+    "sold": false,
+    "dateAdded": "Feb 28, 2026, 4:00:00 PM"
+  },
+  {
+    "price": 25.0,
+    "name": "Wooden Chair",
+    "description": "Good condition",
+    "sold": false,
+    "dateAdded": "Feb 28, 2026, 3:00:00 PM"
+  },
+  {
+    "price": 60.0,
+    "name": "Mini Fridge",
+    "description": "Runs perfectly",
+    "sold": false,
+    "dateAdded": "Feb 28, 2026, 2:30:00 PM"
+  }
+]

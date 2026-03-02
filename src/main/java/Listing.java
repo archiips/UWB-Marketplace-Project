@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Listing {
@@ -37,9 +38,13 @@ public class Listing {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nPrice: " + price +
-                "\nDescription: " + description + "\nStock status: " + sold +
-                "\nDate added: " + dateAdded;
+        String formattedDate = dateAdded != null
+                ? new SimpleDateFormat("MMM dd, yyyy hh:mm a").format(dateAdded)
+                : "N/A";
+        return "Name: " + name + "\nPrice: $" + price +
+                "\nDescription: " + description +
+                "\nStatus: " + (sold ? "Sold" : "Available") +
+                "\nDate added: " + formattedDate;
     }
 
     @Override
