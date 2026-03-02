@@ -37,7 +37,7 @@ public class Listing {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nPrice" + price +
+        return "Name: " + name + "\nPrice: " + price +
                 "\nDescription: " + description + "\nStock status: " + sold +
                 "\nDate added: " + dateAdded;
     }
