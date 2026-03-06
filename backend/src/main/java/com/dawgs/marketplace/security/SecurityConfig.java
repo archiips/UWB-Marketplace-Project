@@ -1,5 +1,6 @@
 package com.dawgs.marketplace.security;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -30,10 +31,23 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            // Return 401 (not 403) for unauthenticated requests so the frontend interceptor fires
+            .exceptionHandling(ex -> ex
+                .authenticationEntryPoint((request, response, authException) ->
+                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized"))
+            )
             .authorizeHttpRequests(auth -> auth
-                // Public: browsing listings and logging in
-                .requestMatchers(HttpMethod.GET, "/api/listings", "/api/listings/**").permitAll()
+                // Authenticated-only GET endpoints — listed before any wildcards
+                .requestMatchers(HttpMethod.GET, "/api/listings/my-listings").authenticated()
+                // Public GET endpoints
+                .requestMatchers(HttpMethod.GET, "/api/listings").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/listings/{id}").permitAll()
+                // Public auth endpoint
                 .requestMatchers(HttpMethod.POST, "/api/auth/google").permitAll()
+                // Mutating listing endpoints require JWT
+                .requestMatchers(HttpMethod.POST, "/api/listings").authenticated()
+                .requestMatchers(HttpMethod.PUT, "/api/listings/{id}").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/api/listings/{id}").authenticated()
                 // Everything else requires a valid JWT
                 .anyRequest().authenticated()
             )
@@ -45,9 +59,10 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("*"));
+        config.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
+        config.setExposedHeaders(List.of("Authorization"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

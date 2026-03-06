@@ -1,0 +1,247 @@
+/* ── Page ── */
+.create-page {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 20px 60px;
+  background: #f5f4f9;
+}
+
+/* ── Card ── */
+.create-card {
+  width: 100%;
+  max-width: 760px;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #e9e5f5;
+  box-shadow: 0 4px 24px rgba(139, 92, 246, 0.08);
+  padding: 40px 48px;
+  animation: cardIn 0.4s ease-out;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Header ── */
+.create-card__header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.create-card__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 6px;
+  letter-spacing: -0.4px;
+}
+
+.create-card__subtitle {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.create-card__divider {
+  height: 1px;
+  background: #f0ebfa;
+  margin-bottom: 28px;
+}
+
+/* ── Server error ── */
+.create-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+}
+
+/* ── Form ── */
+.create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Two-column row */
+.create-form__row {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 16px;
+}
+
+.create-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.create-form__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.create-form__optional,
+.create-form__label-hint {
+  font-weight: 400;
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+.create-form__required {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* Inputs */
+.create-form__input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.925rem;
+  font-family: inherit;
+  color: #111;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+.create-form__input:focus {
+  border-color: #8b5cf6;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+.create-form__input--error {
+  border-color: #f87171;
+  background: #fff;
+}
+
+.create-form__input--error:focus {
+  border-color: #f87171;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.12);
+}
+
+.create-form__textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+/* Icon input */
+.create-form__input-icon-wrap {
+  position: relative;
+}
+
+.create-form__input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.create-form__input--has-icon {
+  padding-left: 40px;
+}
+
+.create-form__error {
+  font-size: 0.78rem;
+  color: #dc2626;
+  margin-top: 2px;
+}
+
+/* ── Actions ── */
+.create-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #f0ebfa;
+  margin-top: 4px;
+}
+
+.create-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 28px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  border: 1.5px solid transparent;
+}
+
+.create-btn:active {
+  transform: scale(0.98);
+}
+
+.create-btn--cancel {
+  background: #fff;
+  border-color: #e5e7eb;
+  color: #6b7280;
+}
+
+.create-btn--cancel:hover {
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+.create-btn--submit {
+  background: #8b5cf6;
+  border-color: #8b5cf6;
+  color: #ffd931;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.create-btn--submit:hover {
+  background: #7c3aed;
+  border-color: #7c3aed;
+}
+
+.create-btn--submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  background: #a78bfa;
+  border-color: #a78bfa;
+}
+
+/* Spinner */
+.create-btn__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 217, 49, 0.35);
+  border-top-color: #ffd931;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .create-card {
+    padding: 28px 20px;
+  }
+
+  .create-form__row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,121 @@
+:root {
+  --color-purple: #4b2e83;
+  --color-purple-dark: #3a2266;
+  --color-yellow: #ffd931;
+  --color-yellow-dark: #e6c200;
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-bg: #f5f4f9;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-purple);
+  text-decoration: none;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+/* Layout utilities */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.container--body {
+  padding: 32px 20px 50px;
+}
+
+@media (min-width: 1024px) {
+  .container--body {
+    padding: 40px 70px 50px;
+  }
+}
+
+/* Shared button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--color-yellow);
+  color: #000;
+  border-color: var(--color-yellow);
+}
+
+.btn--primary:hover {
+  background: var(--color-yellow-dark);
+  border-color: var(--color-yellow-dark);
+}
+
+.btn--outline {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn--outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn--secondary {
+  background: var(--color-yellow);
+  color: #000;
+  border-color: var(--color-yellow);
+}
+
+.btn--secondary:hover {
+  background: var(--color-yellow-dark);
+}
+
+.btn--danger {
+  background: transparent;
+  color: #c0392b;
+  border-color: #c0392b;
+}
+
+.btn--danger:hover {
+  background: #c0392b;
+  color: #fff;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

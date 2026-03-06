@@ -1,0 +1,127 @@
+.detail__back {
+  background: none;
+  border: none;
+  color: var(--color-purple);
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  padding: 0;
+}
+
+.detail__back:hover {
+  text-decoration: underline;
+}
+
+.detail__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .detail__card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.detail__img-wrap {
+  position: relative;
+}
+
+.detail__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 420px;
+}
+
+.detail__img-placeholder {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f0fa;
+  color: #bbb;
+}
+
+.detail__sold-banner {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--color-purple);
+  color: var(--color-yellow);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 6px;
+  letter-spacing: 2px;
+}
+
+.detail__info {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail__title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.detail__price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-purple);
+  margin: 0;
+}
+
+.detail__desc {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.detail__date {
+  font-size: 0.85rem;
+  color: #999;
+  margin: 0;
+}
+
+.detail__contact-box {
+  margin-top: 8px;
+  background: #f5f2fc;
+  border: 1.5px solid #e0d9f8;
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.detail__contact-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8b5cf6;
+  margin: 0 0 6px;
+}
+
+.detail__contact-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  word-break: break-all;
+}
+
+.detail__error {
+  color: #c0392b;
+  text-align: center;
+  padding: 60px 0;
+}

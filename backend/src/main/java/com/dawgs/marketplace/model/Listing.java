@@ -30,6 +30,9 @@ public class Listing {
     @Column(nullable = false)
     private boolean sold = false;
 
+    @Column(name = "contact_info")
+    private String contactInfo;
+
     @Column(name = "created_at", updatable = false)
     private OffsetDateTime createdAt;
 
@@ -61,6 +64,9 @@ public class Listing {
 
     public boolean isSold() { return sold; }
     public void setSold(boolean sold) { this.sold = sold; }
+
+    public String getContactInfo() { return contactInfo; }
+    public void setContactInfo(String contactInfo) { this.contactInfo = contactInfo; }
 
     public OffsetDateTime getCreatedAt() { return createdAt; }
 }
