@@ -33,6 +33,16 @@ function ImagePlaceholder() {
 
 const PAGE_SIZE = 16;
 
+function getFirstImage(imageUrl) {
+  if (!imageUrl) return null;
+  try {
+    const parsed = JSON.parse(imageUrl);
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed[0] : imageUrl;
+  } catch {
+    return imageUrl;
+  }
+}
+
 export default function Home({ searchQuery }) {
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -129,8 +139,8 @@ export default function Home({ searchQuery }) {
                   onClick={() => navigate(`/listing/${item.id}`)}
                 >
                   <div className="listing-card__img-wrap">
-                    {item.imageUrl
-                      ? <img src={item.imageUrl} alt={item.title} className="listing-card__img" />
+                    {getFirstImage(item.imageUrl)
+                      ? <img src={getFirstImage(item.imageUrl)} alt={item.title} className="listing-card__img" />
                       : <ImagePlaceholder />
                     }
                     {item.sold && <span className="listing-card__sold-badge">Sold</span>}

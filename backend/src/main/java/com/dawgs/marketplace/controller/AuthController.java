@@ -22,7 +22,7 @@ public class AuthController {
     private final UserRepository userRepository;
     private final JwtUtil jwtUtil;
 
-    @Value("${google.client.id}")
+    @Value("${GOOGLE_CLIENT_ID}")
     private String googleClientId;
 
     public AuthController(UserRepository userRepository, JwtUtil jwtUtil) {
