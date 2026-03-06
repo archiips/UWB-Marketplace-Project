@@ -215,7 +215,14 @@
 }
 
 @media (max-width: 860px) {
-  .detail__info { padding: 28px; }
+  .detail__info { padding: 24px; }
+}
+
+@media (max-width: 480px) {
+  .detail__title { font-size: 1.35rem; }
+  .detail__price { font-size: 1.5rem; }
+  .detail__info  { padding: 20px 16px; gap: 16px; }
+  .detail__carousel-btn { width: 34px; height: 34px; font-size: 1.2rem; }
 }
 
 .detail__info-top {
