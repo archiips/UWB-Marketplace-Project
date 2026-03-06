@@ -124,19 +124,25 @@ export default function MyListings() {
               className={`mylistings__item${item.sold ? ' mylistings__item--sold' : ''}`}
             >
               <div className="mylistings__img-wrap">
-                {item.imageUrl
-                  ? <img src={item.imageUrl} alt={item.title} className="mylistings__img" />
-                  : (
-                    <div className="mylistings__img-placeholder">
-                      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2">
-                        <rect x="6" y="6" width="36" height="36" rx="4" />
-                        <circle cx="17" cy="19" r="4" />
-                        <path d="M6 34l10-10 8 8 6-6 12 12" />
-                      </svg>
-                      <span>No image</span>
-                    </div>
-                  )
-                }
+                {(() => {
+                  let src = null;
+                  if (item.imageUrl) {
+                    try { const p = JSON.parse(item.imageUrl); src = Array.isArray(p) ? p[0] : item.imageUrl; }
+                    catch { src = item.imageUrl; }
+                  }
+                  return src
+                    ? <img src={src} alt={item.title} className="mylistings__img" />
+                    : (
+                      <div className="mylistings__img-placeholder">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2">
+                          <rect x="6" y="6" width="36" height="36" rx="4" />
+                          <circle cx="17" cy="19" r="4" />
+                          <path d="M6 34l10-10 8 8 6-6 12 12" />
+                        </svg>
+                        <span>No image</span>
+                      </div>
+                    );
+                })()}
               </div>
 
               <div className="mylistings__info">
