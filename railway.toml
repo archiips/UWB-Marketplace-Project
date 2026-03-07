@@ -1,9 +1,5 @@
-[build]
-builder = "NIXPACKS"
-buildCommand = "cd backend && mvn clean package -DskipTests"
-
 [deploy]
-startCommand = "java -jar backend/target/marketplace-0.0.1-SNAPSHOT.jar"
 healthcheckPath = "/api/listings"
-healthcheckTimeout = 60
+healthcheckTimeout = 300
 restartPolicyType = "ON_FAILURE"
+
