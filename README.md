@@ -1,24 +1,37 @@
-# UW Campus Marketplace 🐾
+# Dawgs Marketplace
 
-## About the Project
-This project is a marketplace website created specifically for UW students. It provides a simple, safe and local platform for students to buy, sell and trade items with each other. 
+A buy/sell marketplace exclusively for UW students. Sign in with your `@uw.edu` Google account to browse listings, post items for sale, and connect with other students.
 
-## Core Features
-* **Exclusive Access:** Log in is restricted to users with a valid `@uw.edu` email address.
-* **Create Listings:** Users can post items for sale with a photo, description, price and contact info.
-* **Browse & Search:** Easily scroll through active listings or search for specific items using keywords.
-* **Manage Posts:** Users have full control to edit or delete their own listings.
+**Live site:** https://dawgsmarketplace.vercel.app
 
-## Technologies Used
-This project is built using a modern full-stack architecture:
-* **Frontend:** JavaScript and React (for the user interface)
-* **Backend:** Javak (for the server logic and API)
-* **Database:** PostgreSQL hosted on Supabase (for data storage)
-* **Image Storage:** Cloudinary (for listing photos)
+---
 
-## The Team
-* Shubh Malhotra
-* Maximo Avalone
-* Archit Jaiswal
-* Manas Raut
-* Izy Abudayeh
+## Features
+
+- Google Sign-In restricted to `@uw.edu` accounts
+- Browse and search all active listings
+- Create listings with multiple photos, price, description, and contact info
+- View your own listings and delete them
+- Mobile-friendly design
+
+---
+
+## Tech Stack
+
+| Layer     | Technology                        |
+|-----------|-----------------------------------|
+| Frontend  | React + Vite, deployed on Vercel  |
+| Backend   | Spring Boot (Java 21), deployed on Railway |
+| Database  | PostgreSQL via Supabase           |
+| Images    | Cloudinary                        |
+| Auth      | Google OAuth 2.0 + JWT            |
+
+---
+
+## Team
+
+- Archit Jaiswal
+- Shubh Malhotra
+- Maximo Avalone
+- Manas Raut
+- Izy Abudayeh
