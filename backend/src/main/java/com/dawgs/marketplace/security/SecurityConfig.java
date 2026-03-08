@@ -42,6 +42,8 @@ public class SecurityConfig {
                 // Public GET endpoints
                 .requestMatchers(HttpMethod.GET, "/api/listings").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/listings/{id}").permitAll()
+                // Public health endpoint
+                .requestMatchers(HttpMethod.GET, "/api/health").permitAll()
                 // Public auth endpoint
                 .requestMatchers(HttpMethod.POST, "/api/auth/google").permitAll()
                 // Mutating listing endpoints require JWT
