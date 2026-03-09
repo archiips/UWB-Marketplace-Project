@@ -290,7 +290,7 @@ class AuthenticatedFlowTests(BaseTestCase):
 
         # Inject the token into localStorage - same as what the app does after OAuth
         self.driver.execute_script(
-            f"window.localStorage.setItem('token', '{TEST_JWT}');"
+            f"window.localStorage.setItem('jwt', '{TEST_JWT}');"
         )
         # Navigate to home now that we're "logged in"
         self.navigate_to("/home")
@@ -298,7 +298,7 @@ class AuthenticatedFlowTests(BaseTestCase):
 
     def tearDown(self):
         """Clear auth state after each test."""
-        self.driver.execute_script("window.localStorage.clear();")
+        self.driver.execute_script("window.localStorage.removeItem('jwt');")
 
     def test_home_page_loads_after_login(self):
         """After injecting a valid JWT, the home/listings page should load."""
@@ -417,7 +417,7 @@ class AuthenticatedFlowTests(BaseTestCase):
 
             # Find and click the submit button
             submit_btn = self.driver.find_element(By.CSS_SELECTOR,
-                "button[type='submit'], button:contains('Post'), button:contains('Create')")
+                "button.create-btn--submit")
             submit_btn.click()
 
             time.sleep(3)  # Wait for form submission and navigation
@@ -434,7 +434,7 @@ class AuthenticatedFlowTests(BaseTestCase):
     def test_logout_clears_session(self):
         """After logging out, user should not be able to access protected routes."""
         # Clear localStorage to simulate logout
-        self.driver.execute_script("window.localStorage.clear();")
+        self.driver.execute_script("window.localStorage.removeItem('jwt');")
         self.navigate_to("/home")
         time.sleep(2)
 
@@ -488,7 +488,7 @@ class PerformanceTimingTests(BaseTestCase):
         load_time_ms = self.get_page_load_time_ms()
         print(f"  Home page load time: {load_time_ms}ms")
 
-        self.driver.execute_script("window.localStorage.clear();")
+        self.driver.execute_script("window.localStorage.removeItem('jwt');")
 
         self.assertLess(load_time_ms, 2000,
                         f"Home page took {load_time_ms}ms, should be under 2000ms")
