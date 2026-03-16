@@ -1,0 +1,31 @@
+Dawgs Marketplace - User Testing Notes
+=======================================================================
+
+PARTICIPANT 1
+Date: March 13, 2026
+
+- Liked that the marketplace is restricted to UW students only
+- Said knowing the buyer has a UW email makes them feel trustworthy
+- Photos are important — needs to see item condition before buying
+- Descriptions should be simple with price and item name easy to spot
+- A button to email the seller directly is enough, no need for built-in chat
+- Seller reviews are not necessary since UW verification already builds trust
+- Would like a way to search by course or subject for textbooks
+
+
+PARTICIPANT 2
+Date: March 13, 2026
+
+- The UW-only restriction was the most appealing part of the app
+- Felt safer meeting a fellow student than a stranger from a general website
+- Clear photos showing item condition are the most important part of a listing
+- The search bar was the one feature they said the site must have
+- Email contact is enough - already checks school email throughout the day
+- Seller ratings could be a nice addition but are not essential
+
+
+KEY TAKEAWAYS
+- Both users responded positively to the UW-only, verified-student concept
+- The @uw.edu login requirement directly addressed trust and safety concerns
+- Search and clear photos were the most requested features
+- Simple email contact was preferred over a built-in messaging system

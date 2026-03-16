@@ -1,0 +1,23 @@
+Dawgs Marketplace - Known Issues
+=======================================================================
+
+BUGS
+----
+Priority | Issue                    | Type | Description                          | Affected
+---------|--------------------------|------|--------------------------------------|-------------------------
+P2       | Search Button Cut Off    | UI   | Search button is partially cut off   | Mobile | Chrome, Safari
+         | on Mobile                |      | on mobile screen sizes               |
+
+
+CUT FEATURES (not implemented in final submission)
+---------------------------------------------------
+Feature                  | Original Priority | Reason Cut
+-------------------------|-------------------|--------------------------------------------------
+Edit Listing             | P0                | Replaced by delete and recreate workflow.
+                         |                   | Creating a new listing is quick enough.
+Email Contact Button     | P1                | Replaced by a Contact Info text field on the
+                         |                   | listing. Sellers can share any contact method
+                         |                   | they prefer (email, phone, etc.)
+Category Tags            | P2                | Out of scope for current submission timeline
+Sort by Price            | P2                | Out of scope for current submission timeline
+Report Listing           | P2                | Out of scope for current submission timeline

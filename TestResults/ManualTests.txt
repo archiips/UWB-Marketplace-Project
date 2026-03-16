@@ -1,0 +1,40 @@
+Dawgs Marketplace - Manual Tests Performed
+Date: March 9-14, 2026
+=======================================================================
+
+LOGIN / AUTHENTICATION
+- Sign in with a valid @uw.edu Google account
+- Attempt sign in with a non-UW email (should be rejected)
+- Verify user name appears in nav after login
+- Log out and verify protected pages are no longer accessible
+
+CREATING A LISTING
+- Submit a listing with all valid fields
+- Submit the form with missing required fields (title, price)
+- Enter a negative number as the price
+- Enter special characters in title and description fields
+
+BROWSING AND SEARCHING
+- Verify all listings load on the home page
+- Search by keyword and verify results match
+- Search with no matching results and verify empty state message
+- Click a listing and verify details are correct, including the contact info field
+
+EDITING AND DELETING
+- Delete a listing and repost it with corrected details (edit was cut — delete and recreate is the intended flow)
+- Delete a listing and verify it is removed
+- Attempt to edit another user's listing (should not be allowed)
+
+UI / LAYOUT
+- Checked layout on desktop, laptop, tablet, and mobile screen sizes
+- Confirmed no broken layouts on desktop and tablet
+- Found search button partially cut off on mobile (Known Issue P2)
+
+CROSS-BROWSER
+- Full flow tested on Chrome: PASS
+- Full flow tested on Edge: PASS
+
+DEPLOYMENT
+- Verified frontend loads on Vercel
+- Verified backend API responds on Railway
+- Clicked through all core features on the live deployment

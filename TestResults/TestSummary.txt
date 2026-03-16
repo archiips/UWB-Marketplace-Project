@@ -1,0 +1,90 @@
+Dawgs Marketplace - Test Summary
+Group: Dawgs
+=======================================================================
+
+TYPES OF TESTING PERFORMED
+---------------------------
+
+1. UNIT & INTEGRATION TESTING (JUnit 5)
+   Most Recent Run: March 9, 2026
+   Tool: JUnit 5 with Spring Boot Test and MockMvc
+   What We Tested:
+     - Listing model fields, defaults, and getters/setters (15 tests)
+     - User model and @uw.edu email validation logic (12 tests)
+     - JWT token generation, validation, expiry, and tamper detection (14 tests)
+     - All listing API endpoints (create, read, update, delete) using real Spring
+       Security and an H2 in-memory database (28 tests)
+     - Google OAuth authentication endpoint edge cases — missing, blank,
+       fake, and expired tokens (8 tests)
+   Results: 77 tests run, 77 passed, 0 failed (100% pass rate)
+
+
+2. END-TO-END TESTING (Selenium)
+   Most Recent Run: March 9, 2026
+   Tool: Selenium WebDriver with Python unittest, Chrome browser
+   What We Tested:
+     - Login page loads correctly and Google sign-in button is visible
+     - Unauthenticated users are blocked from protected pages and redirected to login
+     - Public API endpoints return correct responses
+     - Authenticated user flows: browse listings, search, create a listing,
+       view my listings, and log out
+     - Page load performance: login and home page both load under 2 seconds
+   Note: Authenticated tests used a real @uw.edu JWT token injected into
+         localStorage since Google OAuth cannot be automated directly.
+   Results: 21 tests run, 21 passed, 0 failed (100% pass rate)
+
+
+3. LOAD / PERFORMANCE TESTING (Locust)
+   Most Recent Run: March 8, 2026
+   Tool: Locust 2.43.3
+   What We Tested:
+     - Browsing listings, searching, viewing individual listings, and health
+       check under three levels of concurrent user load
+   Test Levels and Results:
+     - Normal   (10 concurrent users): 658 requests, 3.3 req/sec, avg 254ms, 0 failures
+     - Moderate (20 concurrent users): 922 requests, 6.5 req/sec, avg 214ms, 0 failures
+     - Stress   (35 concurrent users): 2923 requests, 10.8 req/sec, avg 201ms, 0 failures
+   Performance Targets:
+     - Failure rate under 1%:           PASS (0% at all levels)
+     - Average response time under 2s:  PASS (max was 254ms)
+     - 95th percentile under 3s:        PASS (max was 400ms)
+     - Max response time under 5s:      PASS (max was 980ms)
+   Results: Zero failures across all three load levels. All performance targets met.
+
+
+4. MANUAL TESTING
+   Most Recent Run: March 9-14, 2026
+   What We Tested:
+     - UI layout and responsiveness on different screen sizes
+     - Form edge cases (negative prices, blank fields, special characters)
+     - Live deployment on Vercel (frontend) and Railway (backend)
+     - Full Google OAuth login flow with real @uw.edu accounts
+     - Cross-browser testing on Chrome and Edge
+   Results: All core flows verified working. One P2 UI issue found on mobile.
+   See ManualTests.txt for the full list.
+
+
+5. USER TESTING
+   Most Recently Conducted: March 13, 2026
+   What We Did:
+     - Conducted user testing sessions with 2 UWB students to evaluate usability and feature priorities of the
+       marketplace after development.
+   Results: Both users confirmed strong interest in a UW-only campus marketplace.
+            Key feedback shaped decisions around authentication, search, and
+            how sellers contact buyers.
+   See UserTestingNotes.txt for full details.
+
+
+=======================================================================
+OVERALL RESULTS
+
+  Test Type               | Tests Run | Passed | Failed | Pass Rate
+  ------------------------|-----------|--------|--------|----------
+  JUnit Unit Tests        |    27     |   27   |    0   |   100%
+  JUnit Security Tests    |    14     |   14   |    0   |   100%
+  JUnit Integration Tests |    36     |   36   |    0   |   100%
+  JUnit TOTAL             |    77     |   77   |    0   |   100%
+  Selenium E2E            |    21     |   21   |    0   |   100%
+  Locust (Normal)         |    --     |   --   | 0 fails|   PASS
+  Locust (Moderate)       |    --     |   --   | 0 fails|   PASS
+  Locust (Stress)         |    --     |   --   | 0 fails|   PASS

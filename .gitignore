@@ -38,3 +38,6 @@ build/
 db_password.md
 .env
 
+### Remotion demo ###
+demo/
+

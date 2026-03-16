@@ -1,0 +1,134 @@
+Dawgs Marketplace - Automated Test Results
+=======================================================================
+
+SECTION 1: JUNIT TEST OUTPUT
+Date: March 9, 2026
+Run via: IntelliJ IDEA — screenshot saved as JUnit tests.png
+-----------------------------------------------------------------------
+
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+15:25:07.382 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.dawgs.marketplace.controller.ListingControllerTest]: ListingControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:25:07.439 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.dawgs.marketplace.MarketplaceApplication for test class com.dawgs.marketplace.controller.ListingControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.5)
+
+2026-03-15T15:25:07.617-07:00  INFO 19520 --- [main] c.d.m.controller.ListingControllerTest   : Starting ListingControllerTest using Java 25.0.2
+2026-03-15T15:25:07.859-07:00  INFO 19520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-15T15:25:07.883-07:00  INFO 19520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2026-03-15T15:25:08.222-07:00  INFO 19520 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-03-15T15:25:08.301-07:00  INFO 19520 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-03-15T15:25:08.302-07:00  INFO 19520 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-03-15T15:25:09.009-07:00  INFO 19520 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-03-15T15:25:09.018-07:00  INFO 19520 --- [main] c.d.m.controller.ListingControllerTest   : Started ListingControllerTest in 1.503 seconds (process running for 2.212)
+2026-03-15T15:25:09.689-07:00  INFO 19520 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.dawgs.marketplace.controller.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-03-15T15:25:09.691-07:00  INFO 19520 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.dawgs.marketplace.MarketplaceApplication for test class com.dawgs.marketplace.controller.AuthControllerTest
+2026-03-15T15:25:09.744-07:00  INFO 19520 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-15T15:25:09.747-07:00  INFO 19520 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-03-15T15:25:09.748-07:00  INFO 19520 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+Process finished with exit code 0
+
+-----------------------------------------------------------------------
+RESULT: 77 tests passed, 77 tests total, 650 ms
+
+  Test Class                      | Tests | Passed | Failed
+  --------------------------------|-------|--------|-------
+  ListingControllerTest           |  28   |   28   |    0
+  ListingModelTest                |  15   |   15   |    0
+  UserModelTest                   |  12   |   12   |    0
+  JwtUtilTest                     |  14   |   14   |    0
+  AuthControllerTest              |   8   |    8   |    0
+  TOTAL                           |  77   |   77   |    0
+
+
+=======================================================================
+
+SECTION 2: SELENIUM END-TO-END TEST OUTPUT
+Date: March 9, 2026
+Command: TEST_JWT="<uw.edu token>" python3 tests/selenium/test_marketplace.py
+-----------------------------------------------------------------------
+
+test_login_page_loads ... ok
+test_login_page_has_google_sign_in_button ... ok
+test_unauthenticated_redirect_to_login ... ok
+test_unauthenticated_cannot_reach_create_listing ... ok
+test_unauthenticated_cannot_reach_my_listings ... ok
+test_page_title_is_set ... ok
+test_login_page_has_no_console_errors ... ok
+test_api_health_endpoint ... ok
+test_api_listings_returns_json ... ok
+test_api_invalid_listing_id_returns_404 ... ok
+test_home_page_loads_after_login ... ok
+test_listings_are_displayed_on_home_page ... ok
+test_search_functionality ... ok
+test_navigate_to_create_listing ... ok
+test_create_listing_form_has_required_fields ... ok
+test_navigate_to_my_listings ... ok
+test_my_listings_page_shows_correct_content ... ok
+test_create_and_verify_listing ... ok
+test_logout_clears_session ... ok
+test_login_page_loads_within_2_seconds ... ok  (load time: 22ms, threshold: 2000ms)
+test_home_page_loads_within_2_seconds ... ok  (load time: 25ms, threshold: 2000ms)
+
+----------------------------------------------------------------------
+Ran 21 tests in 47.832s
+
+OK
+
+
+=======================================================================
+
+SECTION 3: LOCUST LOAD TEST RESULTS
+Date: March 8, 2026
+Command: locust -f tests/locust/locustfile.py --host=http://localhost:8080
+Note: Charts (requests per second over time) are saved as PNG files in this folder.
+-----------------------------------------------------------------------
+
+--- TEST 1: NORMAL LOAD (10 users, spawn rate 2/s, ~3 min) ---
+
+  Endpoint                        | Reqs | Fails | Median(ms) | 95th%(ms) | Avg(ms) | Max(ms)
+  --------------------------------|------|-------|------------|-----------|---------|--------
+  GET /api/health                 |   33 |     0 |          6 |        13 |    6.35 |      14
+  GET /api/listings               |  296 |     0 |        310 |       410 |  309.18 |     821
+  GET /api/listings/{id}          |   72 |     0 |        270 |       450 |  290.25 |     570
+  GET /api/listings/my-listings   |   36 |     0 |          5 |        14 |    6.34 |      17
+  GET /api/listings?search=[term] |  149 |     0 |        200 |       310 |  208.58 |     736
+  AGGREGATED                      |  658 |     0 |        270 |       400 |  254.23 |     821
+
+--- TEST 2: MODERATE LOAD (20 users, spawn rate 3/s, ~3 min) ---
+
+  Endpoint                        | Reqs | Fails | Median(ms) | 95th%(ms) | Avg(ms) | Max(ms)
+  --------------------------------|------|-------|------------|-----------|---------|--------
+  GET /api/health                 |   31 |     0 |          4 |        25 |   20.04 |     487
+  GET /api/listings               |  455 |     0 |        260 |       370 |  262.12 |     980
+  GET /api/listings/{id}          |   76 |     0 |        200 |       350 |  229.93 |     363
+  GET /api/listings/my-listings   |   51 |     0 |          5 |        14 |    5.62 |      20
+  GET /api/listings?search=[term] |  231 |     0 |        170 |       270 |  170.46 |     789
+  AGGREGATED                      |  922 |     0 |        210 |       350 |  214.15 |     980
+
+--- TEST 3: STRESS TEST (35 users, spawn rate 5/s, ~5 min) ---
+
+  Endpoint                        | Reqs  | Fails | Median(ms) | 95th%(ms) | Avg(ms) | Max(ms)
+  --------------------------------|-------|-------|------------|-----------|---------|--------
+  GET /api/health                 |   118 |     0 |          4 |         8 |    4.49 |      14
+  GET /api/listings               |  1425 |     0 |        240 |       360 |  250.47 |     800
+  GET /api/listings/{id}          |   256 |     0 |        210 |       340 |  229.99 |     383
+  GET /api/listings/my-listings   |   154 |     0 |          4 |         9 |    4.77 |      13
+  GET /api/listings?search=[term] |   714 |     0 |        130 |       260 |  149.56 |     499
+  AGGREGATED                      |  2923 |     0 |        200 |       350 |  200.77 |     800
+
+--- PERFORMANCE TARGET SUMMARY ---
+
+  Target                        | Threshold | Normal   | Moderate | Stress
+  ------------------------------|-----------|----------|----------|--------
+  Failure rate                  | < 1%      | 0% PASS  | 0% PASS  | 0% PASS
+  Average response time         | < 2000ms  | 254 PASS | 214 PASS | 201 PASS
+  95th percentile response time | < 3000ms  | 400 PASS | 350 PASS | 350 PASS
+  Max response time             | < 5000ms  | 821 PASS | 980 PASS | 800 PASS
