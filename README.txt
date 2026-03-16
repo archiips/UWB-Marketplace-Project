@@ -35,10 +35,10 @@ Implemented features:
 - Delete your own listings
 - View all your listings on a personal "My Listings" page
 
-Features cut from original plan:
-- Edit listing — replaced by delete and repost
-- Email contact button — replaced by a contact info text field on the listing
-- Category tags, sort by price, and report listing were out of scope
+Features not included in final version:
+- Edit listing - we went with delete and repost instead
+- Email contact button - replaced with a contact info field where sellers can share how they want to be reached
+- Category tags, sort by price, and report listing were cut due to time constraints
 
 =======================================================================
 
